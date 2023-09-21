@@ -1,0 +1,58 @@
+repos:
+  - repo: https://github.com/asottile/seed-isort-config
+    rev: v2.2.0
+    hooks:
+      - id: seed-isort-config
+
+  # Automatically sorts and formats Python imports
+  - repo: https://github.com/pycqa/isort
+    rev: 5.10.1
+    hooks:
+      - id: isort
+        args: ["--profile", "black"]
+
+  # Find and remove unused import statements
+  - repo: https://github.com/hadialqattan/pycln
+    rev: 'v2.1.5'
+    hooks:
+      - id: pycln
+        args: ['.', "--all"]
+
+  # Code formatter
+  - repo: https://github.com/ambv/black
+    rev: 23.1.0
+    hooks:
+      - id: black
+
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v3.4.0
+    hooks:
+      - id: trailing-whitespace
+      - id: end-of-file-fixer
+      - id: check-toml
+      - id: check-json
+      - id: pretty-format-json
+        args: ['--autofix']
+      - id: check-yaml
+      - id: check-merge-conflict
+      - id: check-case-conflict
+      - id: check-docstring-first
+
+  # Static type checker
+  - repo: https://github.com/pre-commit/mirrors-mypy
+    rev: v1.4.1
+    hooks:
+      - id: mypy
+
+  # Enforce coding standards in Python. It checks the code against PEP8
+  - repo: https://github.com/pycqa/flake8
+    rev: 3.8.4
+    hooks:
+      - id: flake8
+
+  # Checking compliance with Python docstring conventions
+#   - repo: https://github.com/pycqa/pydocstyle
+#     rev: '6.3.0'
+#     hooks:
+#       - id: pydocstyle
+#         args: ['.']

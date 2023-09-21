@@ -1,0 +1,37 @@
+[tool.poetry]
+name = "code_quality_inspector"
+version = "0.1.0"
+description = "Python library for effortless analysis and assessment of code quality metrics in software development projects."
+authors = ["Andres Di Giovanni <andresdigiovanni@gmail.com>"]
+readme = "README.md"
+license = "MIT"
+packages = [{include = "code_quality_inspector"}]
+
+[tool.poetry.dependencies]
+python = ">=3.9"
+
+[tool.poetry.dev-dependencies]
+pytest = "^7.2.0"
+pre-commit = "^2.20.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.black]
+line-length = 88
+include = '\.pyi?$'
+exclude = '''
+/(
+    \.git
+  | \.hg
+  | \.mypy_cache
+  | \.tox
+  | \.venv
+  | _build
+  | buck-out
+  | build
+  | dist
+  | docs
+)/
+'''
